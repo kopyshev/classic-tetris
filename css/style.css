@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --square: 30px;
+}
+
+.theme-default {
+    --primary-color: hsla(35, 0%, 100%, 1);
+    --occupied-color: hsla(219, 79%, 66%, 1);
+    --game-bg: hsla(0, 0%, 80%, 1);
+    --border-color:hsla(35, 0%, 100%, 1);
+    --figure-color: hsla(35, 0%, 100%, 1);
+    --I: hsla(180, 100%, 50%, 1);
+    --O: hsla(60, 100%, 50%, 1);
+    --T: hsla(300, 100%, 25%, 1);
+    --S: hsla(120, 100%, 25%, 1);
+    --Z: hsla(0, 100%, 50%, 1);
+    --L: hsla(39, 100%, 50%, 1);
+    --J: hsla(240, 100%, 50%, 1);
+    --inner-border: 0;
+}
+
+.theme-brick-game {
+    --primary-color: hsla(82, 10%, 70%, 1);
+    --occupied-color: hsla(0, 0%, 0%, 1);
+    --game-bg: hsl(84, 10%, 60%, 1);
+    --border-color:hsl(84, 10%, 60%, 1);
+    --figure-color: hsla(0, 0%, 0%, 1);
+    --I: hsla(0, 0%, 0%, 1);
+    --O: hsla(0, 0%, 0%, 1);
+    --T: hsla(0, 0%, 0%, 1);
+    --S: hsla(0, 0%, 0%, 1);
+    --Z: hsla(0, 0%, 0%, 1);
+    --L: hsla(0, 0%, 0%, 1);
+    --J: hsla(0, 0%, 0%, 1);
+    --inner-border: 2px;
+
+}
+
+
+
+body {
+    background-color: var(--primary-color);
+}
+
+@font-face {
+    font-family: "digital";
+    src: url('../font/Bazaronite.ttf');
+}
+
+#app {
+    display: flex;
+    margin: auto;
+    border: 1px solid black;
+    justify-content: center;
+}
+
+#tetris {
+    margin: 0 20px;
+    width: calc(var(--square)*10);
+    height: calc(var(--square)*20);
+    overflow: hidden;
+    position: relative;
+}
+
+#score {
+    font-family: "digital";
+    font-size: 32px;
+    min-width: 200px;
+}
+
+#game {
+    width: calc(var(--square)*10);
+    height: calc(var(--square)*24);
+    display: flex;
+    position: absolute;
+    overflow: hidden;
+    flex-wrap: wrap;
+    bottom: 0;
+    background-color: var(--game-bg);
+}
+
+
+
+.cell {
+    width: var(--square);
+    height: var(--square);
+    outline: var(--inner-border) solid var(--primary-color);
+    outline-offset: -3px;
+    border: 1px solid var(--border-color);
+}
+.cell.figure{border: 1px solid var(--figure-color);}
+.occupied {
+    background: var(--occupied-color);
+    border: 1px solid var(--figure-color);
+}
+
+.I {
+    background-color: var(--I);
+
+}
+
+.O {
+    background-color: var(--O);
+
+}
+
+.T {
+    background-color: var(--T);
+
+}
+
+.S {
+    background-color: var(--S);
+
+}
+
+.Z {
+    background-color: var(--Z);
+
+}
+
+.L {
+    background-color: var(--L);
+
+}
+
+.J {
+    background-color: var(--J);
+
+}
+
+.hidden{
+    display: none;
+}
+.show{
+    display: inline;
+}
+
+@media only screen and (max-device-width: 480px) {
+    :root {
+        --square: 20px;
+    }
+    #score {
+        font-family: "digital";
+        font-size: 12px;
+        max-width: 50px;
+        min-width: 50px
+    }
+    button{
+        font-size: 12px;
+    }
+    .hidden{
+        display: inline;
+    }
+    .show{
+        display: none
+    }
+}
